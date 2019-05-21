@@ -12,9 +12,6 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-    <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js"
-        integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous">
-    </script>
 </head>
 
 <body>
@@ -42,7 +39,7 @@
                     <a class="nav-link" href="#">Job</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
+                    <a class="nav-link" href="#" onclick="logout()">Logout</a>
                 </li>
             </ul>
         </div>
@@ -67,22 +64,22 @@
             <div class="col-md">
                 <div class="form-group">
                     <label for="">First Name</label>
-                    <input type="text" class="form-control" name="" id="first_name" aria-describedby="helpId"
-                        placeholder="First Name">
+                    <input type="text" class="form-control personalDetailDisabled" name="" id="first_name"
+                        aria-describedby="helpId" placeholder="First Name" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Middle Name</label>
-                    <input type="text" class="form-control" name="" id="middle_name" aria-describedby="helpId"
-                        placeholder="Middle Name">
+                    <input type="text" class="form-control personalDetailDisabled" name="" id="middle_name"
+                        aria-describedby="helpId" placeholder="Middle Name" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Last Name</label>
-                    <input type="text" class="form-control" name="" id="last_name" aria-describedby="helpId"
-                        placeholder="Last Name">
+                    <input type="text" class="form-control personalDetailDisabled" name="" id="last_name"
+                        aria-describedby="helpId" placeholder="Last Name" disabled>
                 </div>
             </div>
         </div>
@@ -91,14 +88,14 @@
                 <div class="form-group">
                     <label for="">Employee ID</label>
                     <input type="text" class="form-control" name="" id="employee_id" aria-describedby="helpId"
-                        placeholder="Employee ID">
+                        placeholder="Employee ID" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">No KTP</label>
-                    <input type="text" class="form-control" name="" id="no_ktp" aria-describedby="helpId"
-                        placeholder="No KTP">
+                    <input type="text" class="form-control personalDetailDisabled" name="" id="no_ktp"
+                        aria-describedby="helpId" placeholder="No KTP" disabled>
                 </div>
             </div>
         </div>
@@ -107,14 +104,14 @@
                 <div class="form-group">
                     <label for="">Driver’s License Number</label>
                     <input type="text" class="form-control" name="" id="drivers_license_number"
-                        aria-describedby="helpId" placeholder="Driver’s License Number">
+                        aria-describedby="helpId" placeholder="Driver’s License Number" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">License Expiry Date</label>
-                    <input type="text" class="form-control" name="" id="license_expiry_date" aria-describedby="helpId"
-                        placeholder="License Expiry Date">
+                    <input type="text" class="form-control personalDetailDisabled" name="" id="license_expiry_date"
+                        aria-describedby="helpId" placeholder="License Expiry Date" disabled>
                 </div>
             </div>
         </div>
@@ -122,22 +119,22 @@
             <div class="col-md">
                 <div class="form-group">
                     <label for="">No BPJS Kesehatan</label>
-                    <input type="text" class="form-control" name="" id="lastname" aria-describedby="helpId"
-                        placeholder="No BPJS Kesehatan">
+                    <input type="text" class="form-control personalDetailDisabled" name="" id="no_bpjs_kesehatan"
+                        aria-describedby="helpId" placeholder="No BPJS Kesehatan" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">No NPWP</label>
-                    <input type="text" class="form-control" name="" id="lastname" aria-describedby="helpId"
-                        placeholder="No NPWP">
+                    <input type="text" class="form-control personalDetailDisabled" name="" id="no_npwp"
+                        aria-describedby="helpId" placeholder="No NPWP" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">No BPJS Ketenagakerjaan</label>
-                    <input type="text" class="form-control" name="" id="lastname" aria-describedby="helpId"
-                        placeholder="No BPJS Ketenagakerjaan">
+                    <input type="text" class="form-control personalDetailDisabled" name="" id="no_bpjs_ketenagakerjaan"
+                        aria-describedby="helpId" placeholder="No BPJS Ketenagakerjaan" disabled>
                 </div>
             </div>
         </div>
@@ -145,16 +142,14 @@
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Work Shift</label>
-                    <select class="form-control" name="" id="gender">
-                        <option>Female</option>
-                        <option>Male</option>
+                    <select class="form-control personalDetailDisabled" name="" id="work_shift" disabled>
                     </select>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Gender</label>
-                    <select class="form-control" name="" id="gender">
+                    <select class="form-control personalDetailDisabled" name="" id="gender" disabled>
                         <option>Female</option>
                         <option>Male</option>
                     </select>
@@ -165,18 +160,18 @@
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Marital Status</label>
-                    <select class="form-control" name="" id="gender">
-                        <option>Female</option>
-                        <option>Male</option>
+                    <select class="form-control personalDetailDisabled" name="" id="marital_status" disabled>
+                        <option>Single</option>
+                        <option>Married</option>
+                        <option>Divorced</option>
+                        <option>Other</option>
                     </select>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Nationality</label>
-                    <select class="form-control" name="" id="gender">
-                        <option>Female</option>
-                        <option>Male</option>
+                    <select class="form-control personalDetailDisabled" name="" id="nationality" disabled>
                     </select>
                 </div>
             </div>
@@ -185,24 +180,32 @@
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Date of Birth</label>
-                    <input type="text" class="form-control" name="" id="lastname" aria-describedby="helpId"
-                        placeholder="Date of Birth">
+                    <input type="text" class="form-control personalDetailDisabled" name="" id="date_of_birth"
+                        aria-describedby="helpId" placeholder="Date of Birth" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Religion</label>
-                    <select class="form-control" name="" id="gender">
-                        <option>Female</option>
-                        <option>Male</option>
+                    <select class="form-control personalDetailDisabled" name="" id="religion" disabled>
                     </select>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md">
-                <button type="button" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label for="">Place of Birth</label>
+                    <input type="text" class="form-control personalDetailDisabled" name="" id="place_of_birth"
+                        aria-describedby="helpId" placeholder="Place of Birth" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <button type="button" class="btn btn-primary" id="personalDetailEdit">Edit</button>
+                <button type="button" class="btn btn-primary" id="personalDetailCancel">Cancel</button>
+                <button type="button" class="btn btn-primary" id="personalDetailSubmit">Submit</button>
             </div>
         </div>
     </div>
@@ -286,6 +289,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md">
+                <button type="button" class="btn btn-primary">Cancel</button>
                 <button type="button" class="btn btn-primary">Update</button>
             </div>
         </div>
@@ -325,6 +329,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md">
+                <button type="button" class="btn btn-primary">Cancel</button>
                 <button type="button" class="btn btn-primary">Upload</button>
             </div>
         </div>
@@ -333,6 +338,26 @@
         <div class="row">
             <div class="col-md">
                 <hr>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-message">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
@@ -347,6 +372,253 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./app.js"></script>
+    <!-- <script>
+        function showModal(message) {
+            document.getElementById("modal-message").innerHTML = message;
+            $('#exampleModal').modal('show');
+        };
+
+        function checkToken() {
+            if (sessionStorage["access_token"] == undefined) {
+                console.log("Token does not exist");
+                document.getElementById("modal-message").innerHTML = "You are not logged in";
+                $('#exampleModal').modal('show');
+                setTimeout(function () {
+                    window.location.href = "/login.html";
+                }, 1000);
+            }
+        };
+
+
+        function tokenExpired() {
+            document.getElementById("modal-message").innerHTML = "Token is expired";
+            $('#exampleModal').modal('show');
+            setTimeout(function () {
+                window.location.href = "/login.html";
+            }, 1000);
+        };
+
+        function getPersonalDetail() {
+            axios.get('http://anzmbp.local:5000/myinfo/personaldetail', {
+                    headers: {
+                        "Authorization": "Bearer " + sessionStorage.getItem("access_token")
+                    }
+                })
+                .then(function (response) {
+                    $("#first_name").val(response.data.first_name);
+                    $("#middle_name").val(response.data.middle_name);
+                    $("#last_name").val(response.data.last_name);
+                    $("#employee_id").val(response.data.employee_id);
+                    $("#no_ktp").val(response.data.no_ktp);
+                    $("#drivers_license_number").val(response.data.drivers_license_number);
+                    $("#license_expiry_date").val(response.data.license_expiry_date);
+                    $("#no_bpjs_kesehatan").val(response.data.no_bpjs_kesehatan);
+                    $("#no_npwp").val(response.data.no_npwp);
+                    $("#no_bpjs_ketenagakerjaan").val(response.data.no_bpjs_ketenagakerjaan);
+                    $("#work_shift").val(response.data.work_shift);
+                    if (response.data.gender == "1") {
+                        $("#gender").val("Male");
+                    } else {
+                        $("#gender").val("Female");
+                    }
+                    // $("#gender").val(response.data.gender);
+                    $("#marital_status").val(response.data.marital_status);
+                    $("#nationality").val(response.data.nationality);
+                    $("#date_of_birth").val(response.data.date_of_birth);
+                    $("#religion").val(response.data.religion);
+                    $("#place_of_birth").val(response.data.place_of_birth);
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    var message = error.response.data.msg;
+                    showModal(message)
+                    console.log(error.response);
+                })
+                .finally(function () {
+                    // always executed
+                });
+        };
+
+        function getGenderByName(gender_name) {
+            if (gender_name == "Male") {
+                return "1"
+            } else {
+                return "2"
+            }
+
+        };
+
+        function getNationalityByName(nation_name) {
+            var data = JSON.parse(sessionStorage["nationality"]);
+            var result =  data.filter(function (el) {
+                return el.nation_name.indexOf(nation_name) > -1;
+            });
+            return result[0]["nation_code"];
+
+        };
+
+        function getReligionByName(religion_name) {
+            var data = JSON.parse(sessionStorage["religion"]);
+            var result =  data.filter(function (el) {
+                return el.religion_name.indexOf(religion_name) > -1;
+            });
+            return result[0]["religion_code"];
+        };
+
+        function getWorkShiftByName(workshift_name) {
+            var data = JSON.parse(sessionStorage["work_shift"]);
+            var result =  data.filter(function (el) {
+                return el.workshift_name.indexOf(workshift_name) > -1;
+            });
+            return result[0]["workshift_code"];
+        };
+
+        function putPersonalDetail() {
+            var data = {
+                first_name: $("#first_name").val(),
+                middle_name: $("#middle_name").val(),
+                last_name: $("#last_name").val(),
+                no_ktp: $("#no_ktp").val(),
+                license_expiry_date: $("#license_expiry_date").val(),
+                no_bpjs_kesehatan: $("#no_bpjs_kesehatan").val(),
+                no_npwp: $("#no_npwp").val(),
+                no_bpjs_ketenagakerjaan: $("#no_bpjs_ketenagakerjaan").val(),
+                work_shift: getWorkShiftByName($("#work_shift").val()),
+                gender: getGenderByName($("#gender").val()),
+                marital_status: $("#marital_status").val(),
+                nationality: getNationalityByName($("#nationality").val()),
+                date_of_birth: $("#date_of_birth").val(),
+                religion: getReligionByName($("#religion").val()),
+                place_of_birth: $("#place_of_birth").val()
+            };
+            console.log(data)
+            var config = {
+                headers: {
+                    "Authorization": "Bearer " + sessionStorage.getItem("access_token")
+                }
+            };
+            axios.put('http://anzmbp.local:5000/myinfo/personaldetail', data, config)
+                .then(function (response) {
+                    getPersonalDetail();
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    var message = error.response.data.msg;
+                    showModal(message)
+                    console.log(error.response);
+                });
+
+
+        };
+
+        function getWorkShift() {
+            axios.get('http://anzmbp.local:5000/workshift')
+                .then(function (response) {
+                    // handle success
+                    $('#work_shift').empty();
+                    response.data.forEach(element => {
+                        $('#work_shift').append("<option>" + element.workshift_name + "</option>")
+                    });
+                    sessionStorage.setItem("work_shift", JSON.stringify(response.data));
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    var message = error.response.data.msg;
+                    showModal(message)
+                    console.log(error.response);
+                })
+                .finally(function () {
+                    // always executed
+                });
+        };
+
+
+        function getNationality() {
+            axios.get('http://anzmbp.local:5000/nationality')
+                .then(function (response) {
+                    // handle success
+                    $('#nationality').empty();
+                    response.data.forEach(element => {
+                        $('#nationality').append("<option>" + element.nation_name + "</option>")
+                    });
+                    sessionStorage.setItem("nationality", JSON.stringify(response.data));
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    var message = error.response.data.msg;
+                    showModal(message)
+                    console.log(error.response);
+                })
+                .finally(function () {
+                    // always executed
+                });
+
+        };
+
+
+        function getReligion() {
+            axios.get('http://anzmbp.local:5000/religion')
+                .then(function (response) {
+                    // handle success
+                    $('#religion').empty();
+                    response.data.forEach(element => {
+                        $('#religion').append("<option>" + element.religion_name + "</option>")
+
+                    });
+                    console.log(response);
+                    sessionStorage.setItem("religion", JSON.stringify(response.data));
+                })
+                .catch(function (error) {
+                    var message = error.response.data.msg;
+                    showModal(message)
+                    console.log(error.response);
+                })
+                .finally(function () {
+                    // always executed
+                });
+        };
+
+        function logout() {
+            sessionStorage.removeItem("access_token");
+            document.getElementById("modal-message").innerHTML = "Logging out";
+            $('#exampleModal').modal('show')
+            setTimeout(function () {
+                window.location.href = "/login.html";
+            }, 1000);
+        };
+
+        $(document).ready(function () {
+            checkToken();
+            getWorkShift();
+            getNationality();
+            getReligion();
+            getPersonalDetail();
+            $('#personalDetailCancel').prop("hidden", true);
+            $('#personalDetailSubmit').prop("hidden", true);
+            $("#personalDetailEdit").click(function () {
+                $('.personalDetailDisabled').prop("disabled", false);
+                $('#personalDetailEdit').prop("hidden", true);
+                $('#personalDetailCancel').prop("hidden", false);
+                $('#personalDetailSubmit').prop("hidden", false);
+            });
+            $("#personalDetailCancel").click(function () {
+                getPersonalDetail();
+                $('.personalDetailDisabled').prop("disabled", true);
+                $('#personalDetailEdit').prop("hidden", false);
+                $('#personalDetailCancel').prop("hidden", true);
+                $('#personalDetailSubmit').prop("hidden", true);
+            });
+            $("#personalDetailSubmit").click(function () {
+                $('.personalDetailDisabled').prop("disabled", true);
+                $('#personalDetailEdit').prop("hidden", false);
+                $('#personalDetailCancel').prop("hidden", true);
+                $('#personalDetailSubmit').prop("hidden", true);
+                putPersonalDetail();
+            });
+        });
+    </script> -->
 </body>
 
 </html>
