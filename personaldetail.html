@@ -16,7 +16,7 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="#">HRM IPNet Desktop Client</a>
+        <a class="navbar-brand" href="/personaldetail.html">HRM IPNet Desktop Client</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,19 +24,19 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/personaldetail.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Personal Detail</a>
+                    <a class="nav-link" href="/personaldetail.html">Personal Detail</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Detail</a>
+                    <a class="nav-link" href="/contactdetail.html">Contact Detail</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Emergency Contact</a>
+                    <a class="nav-link" href="/emergencycontact.html">Emergency Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Job</a>
+                    <a class="nav-link" href="/job.html">Job</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" onclick="logout()">Logout</a>
@@ -348,21 +348,40 @@
                 <div class="form-group">
                     <label for="">Select File</label>
                     <input type="file" class="form-control-file" name="" id="" placeholder=""
-                        aria-describedby="fileHelpId">
+                        aria-describedby="fileHelpId" v-on:change="convertUploadAttachment($event)">
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Comment</label>
                     <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
-                        placeholder="Comment">
+                        placeholder="Comment" v-model="upload_attachment.comment">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md">
-                <button type="button" class="btn btn-primary">Cancel</button>
-                <button type="button" class="btn btn-primary">Upload</button>
+                <button type="button" class="btn btn-primary" v-on:click="cancelUploadAttachment">Cancel</button>
+                <button type="button" class="btn btn-primary" v-on:click="submitUploadAttachment">Upload</button>
+            </div>
+        </div>
+        <div class="modal fade" id="attachmentPersonalDetailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modal-message">
+                        {{message}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
