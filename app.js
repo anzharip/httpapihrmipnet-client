@@ -1,7 +1,129 @@
-function showModal(message) {
-    document.getElementById("modal-message").innerHTML = message;
-    $('#exampleModal').modal('show');
-};
+"use strict";
+var config = {
+    "server_url": "http://anzmbp.local:5000"
+}
+
+var app_personal_detail = new Vue({
+    el: "#app_personal_detail",
+    data: {
+        message: "",
+        first_name: "",
+        middle_name: "",
+        last_name: "",
+        employee_id: "",
+        no_ktp: "",
+        drivers_license_number: "",
+        license_expiry_date: "",
+        no_bpjs_kesehatan: "",
+        no_npwp: "",
+        no_bpjs_ketenagakerjaan: "",
+        selected_workshift: "",
+        selected_gender: "",
+        selected_marital_status: "",
+        selected_nationality: "",
+        date_of_birth: "",
+        selected_religion: "",
+        place_of_birth: "",
+        work_shift: [],
+        nationality: [],
+        religion: [],
+        marital_status: [{
+                marital_status_name: "Single"
+            },
+            {
+                marital_status_name: "Married"
+            },
+            {
+                marital_status_name: "Divorced"
+            },
+            {
+                marital_status_name: "Other"
+            }
+        ],
+        gender: [{
+                gender_code: "1",
+                gender_name: "Male"
+            },
+            {
+                gender_code: "2",
+                gender_name: "Female"
+            }
+        ],
+
+    },
+});
+
+var app_personal_detail_attachment = new Vue({
+    el: "#app_personal_detail_attachment",
+    data: {
+        attachment: [],
+        selected_attachment: {},
+        upload_attachment: {},
+        message: ""
+    },
+    methods: {
+        deleteAttachment: function (file_id) {
+            var model_attachment = new ModelAttachment(config);
+            var data = {
+                file_id: file_id
+            }
+            var self = this;
+            model_attachment.delete(data).then(function (response) {
+                console.log(response);
+                self.message = response.data.message;
+                self.getAttachment("all");
+            }).catch(function (error) {
+                console.log(error.response);
+                self.message = error.response.data.message;
+            });
+            console.log(self.message);
+        },
+        getAttachment: function (file_id) {
+            var model_attachment = new ModelAttachment(config);
+            var data = {
+                file_id: file_id
+            }
+            var self = this;
+            model_attachment.get(data).then(function (response) {
+                self.attachment = response.data;
+                self.message = response.data.message;
+            }).catch(function (error) {
+                console.log(error.response);
+                self.message = error.response.data.message;
+            });
+        },
+        selectAttachment: function (file) {
+            var self = this; 
+            self.selected_attachment = file; 
+            self.showEditAttachment();
+        },
+        cancelEditAttachment: function () {
+            var self = this; 
+            self.selected_attachment = {}; 
+            self.hideEditAttachment();
+        },
+        submitEditAttachment: function () {
+            var model_attachment = new ModelAttachment(config);
+            var self = this; 
+            var data = self.selected_attachment; 
+            model_attachment.put(data).then(function (response) {
+                console.log(response);
+                self.message = response.data.message;
+                self.getAttachment("all");
+                self.cancelEditAttachment();
+            }).catch(function (error) {
+                console.log(error.response);
+                self.message = error.response.data.message;
+            }); 
+        },
+        hideEditAttachment: function () {
+            $('.editAttachment').prop("hidden", true);
+        },
+        showEditAttachment: function () {
+            $('.editAttachment').prop("hidden", false);
+        }
+    }
+});
 
 function checkToken() {
     if (sessionStorage["access_token"] == undefined) {
@@ -14,193 +136,12 @@ function checkToken() {
     }
 };
 
-
 function tokenExpired() {
     document.getElementById("modal-message").innerHTML = "Token is expired";
     $('#exampleModal').modal('show');
     setTimeout(function () {
         window.location.href = "/login.html";
     }, 1000);
-};
-
-function getPersonalDetail() {
-    axios.get('http://anzmbp.local:5000/myinfo/personaldetail', {
-            headers: {
-                "Authorization": "Bearer " + sessionStorage.getItem("access_token")
-            }
-        })
-        .then(function (response) {
-            $("#first_name").val(response.data.first_name);
-            $("#middle_name").val(response.data.middle_name);
-            $("#last_name").val(response.data.last_name);
-            $("#employee_id").val(response.data.employee_id);
-            $("#no_ktp").val(response.data.no_ktp);
-            $("#drivers_license_number").val(response.data.drivers_license_number);
-            $("#license_expiry_date").val(response.data.license_expiry_date);
-            $("#no_bpjs_kesehatan").val(response.data.no_bpjs_kesehatan);
-            $("#no_npwp").val(response.data.no_npwp);
-            $("#no_bpjs_ketenagakerjaan").val(response.data.no_bpjs_ketenagakerjaan);
-            $("#work_shift").val(response.data.work_shift);
-            if (response.data.gender == "1") {
-                $("#gender").val("Male");
-            } else {
-                $("#gender").val("Female");
-            }
-            // $("#gender").val(response.data.gender);
-            $("#marital_status").val(response.data.marital_status);
-            $("#nationality").val(response.data.nationality);
-            $("#date_of_birth").val(response.data.date_of_birth);
-            $("#religion").val(response.data.religion);
-            $("#place_of_birth").val(response.data.place_of_birth);
-            console.log(response);
-        })
-        .catch(function (error) {
-            var message = error.response.data.msg;
-            showModal(message)
-            console.log(error.response);
-        })
-        .finally(function () {
-            // always executed
-        });
-};
-
-function getGenderByName(gender_name) {
-    if (gender_name == "Male") {
-        return "1"
-    } else {
-        return "2"
-    }
-
-};
-
-function getNationalityByName(nation_name) {
-    var data = JSON.parse(sessionStorage["nationality"]);
-    var result = data.filter(function (el) {
-        return el.nation_name.indexOf(nation_name) > -1;
-    });
-    return result[0]["nation_code"];
-
-};
-
-function getReligionByName(religion_name) {
-    var data = JSON.parse(sessionStorage["religion"]);
-    var result = data.filter(function (el) {
-        return el.religion_name.indexOf(religion_name) > -1;
-    });
-    return result[0]["religion_code"];
-};
-
-function getWorkShiftByName(workshift_name) {
-    var data = JSON.parse(sessionStorage["work_shift"]);
-    var result = data.filter(function (el) {
-        return el.workshift_name.indexOf(workshift_name) > -1;
-    });
-    return result[0]["workshift_code"];
-};
-
-function putPersonalDetail() {
-    var data = {
-        first_name: $("#first_name").val(),
-        middle_name: $("#middle_name").val(),
-        last_name: $("#last_name").val(),
-        no_ktp: $("#no_ktp").val(),
-        license_expiry_date: $("#license_expiry_date").val(),
-        no_bpjs_kesehatan: $("#no_bpjs_kesehatan").val(),
-        no_npwp: $("#no_npwp").val(),
-        no_bpjs_ketenagakerjaan: $("#no_bpjs_ketenagakerjaan").val(),
-        work_shift: getWorkShiftByName($("#work_shift").val()),
-        gender: getGenderByName($("#gender").val()),
-        marital_status: $("#marital_status").val(),
-        nationality: getNationalityByName($("#nationality").val()),
-        date_of_birth: $("#date_of_birth").val(),
-        religion: getReligionByName($("#religion").val()),
-        place_of_birth: $("#place_of_birth").val()
-    };
-    console.log(data)
-    var config = {
-        headers: {
-            "Authorization": "Bearer " + sessionStorage.getItem("access_token")
-        }
-    };
-    axios.put('http://anzmbp.local:5000/myinfo/personaldetail', data, config)
-        .then(function (response) {
-            getPersonalDetail();
-            console.log(response);
-        })
-        .catch(function (error) {
-            var message = error.response.data.msg;
-            showModal(message)
-            console.log(error.response);
-        });
-
-
-};
-
-function getWorkShift() {
-    axios.get('http://anzmbp.local:5000/workshift')
-        .then(function (response) {
-            // handle success
-            $('#work_shift').empty();
-            response.data.forEach(element => {
-                $('#work_shift').append("<option>" + element.workshift_name + "</option>")
-            });
-            sessionStorage.setItem("work_shift", JSON.stringify(response.data));
-            console.log(response);
-        })
-        .catch(function (error) {
-            var message = error.response.data.msg;
-            showModal(message)
-            console.log(error.response);
-        })
-        .finally(function () {
-            // always executed
-        });
-};
-
-
-function getNationality() {
-    axios.get('http://anzmbp.local:5000/nationality')
-        .then(function (response) {
-            // handle success
-            $('#nationality').empty();
-            response.data.forEach(element => {
-                $('#nationality').append("<option>" + element.nation_name + "</option>")
-            });
-            sessionStorage.setItem("nationality", JSON.stringify(response.data));
-            console.log(response);
-        })
-        .catch(function (error) {
-            var message = error.response.data.msg;
-            showModal(message)
-            console.log(error.response);
-        })
-        .finally(function () {
-            // always executed
-        });
-
-};
-
-
-function getReligion() {
-    axios.get('http://anzmbp.local:5000/religion')
-        .then(function (response) {
-            // handle success
-            $('#religion').empty();
-            response.data.forEach(element => {
-                $('#religion').append("<option>" + element.religion_name + "</option>")
-
-            });
-            console.log(response);
-            sessionStorage.setItem("religion", JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-            var message = error.response.data.msg;
-            showModal(message)
-            console.log(error.response);
-        })
-        .finally(function () {
-            // always executed
-        });
 };
 
 function logout() {
@@ -213,11 +154,19 @@ function logout() {
 };
 
 $(document).ready(function () {
+    //
+    var model_attachment = new ModelAttachment(config);
+    var data = {
+        file_id: "all"
+    }
+    model_attachment.get(data).then(function (response) {
+        app_personal_detail_attachment.attachment = response.data;
+        console.log(response);
+    });
+    //
     checkToken();
-    getWorkShift();
-    getNationality();
-    getReligion();
-    getPersonalDetail();
+    var view_personal_detail = new ViewPersonalDetail();
+    view_personal_detail.init();
     $('#personalDetailCancel').prop("hidden", true);
     $('#personalDetailSubmit').prop("hidden", true);
     $("#personalDetailEdit").click(function () {
@@ -227,7 +176,7 @@ $(document).ready(function () {
         $('#personalDetailSubmit').prop("hidden", false);
     });
     $("#personalDetailCancel").click(function () {
-        getPersonalDetail();
+        view_personal_detail.init();
         $('.personalDetailDisabled').prop("disabled", true);
         $('#personalDetailEdit').prop("hidden", false);
         $('#personalDetailCancel').prop("hidden", true);
@@ -238,6 +187,8 @@ $(document).ready(function () {
         $('#personalDetailEdit').prop("hidden", false);
         $('#personalDetailCancel').prop("hidden", true);
         $('#personalDetailSubmit').prop("hidden", true);
-        putPersonalDetail();
+        view_personal_detail.put();
     });
+    $("#attachmentEdit").click();
+    $("#attachmentDelete").click();
 });
