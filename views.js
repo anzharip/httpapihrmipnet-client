@@ -1,18 +1,6 @@
 "use strict";
 class ViewPersonalDetail {
     init() {
-        var model_workshift = new ModelWorkShift(config);
-        var model_nationality = new ModelNationality(config);
-        var model_religion = new ModelReligion(config);
-        model_workshift.get().then(function (response) {
-            app_personal_detail.work_shift = response.data;
-        });
-        model_nationality.get().then(function (response) {
-            app_personal_detail.nationality = response.data;
-        });
-        model_religion.get().then(function (response) {
-            app_personal_detail.religion = response.data;
-        });
         this.get();
     };
     get() {

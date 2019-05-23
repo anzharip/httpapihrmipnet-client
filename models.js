@@ -1,8 +1,9 @@
 "use strict";
-class ModelPersonalDetail {
+
+class ModelInfoDetail {
     constructor(config) {
         this.config = config;
-        this.url = config["server_url"] + "/myinfo/personaldetail";
+        this.url = config["server_url"] + "";
         this.axios_config = {
             headers: {
                 "Authorization": "Bearer " + sessionStorage.getItem("access_token")
@@ -17,6 +18,13 @@ class ModelPersonalDetail {
     put(data) {
         var result = axios.put(this.url, data, this.axios_config);
         return result;
+    };
+};
+
+class ModelPersonalDetail extends ModelInfoDetail{
+    constructor(config) {
+        super(config);
+        this.url = config["server_url"] + "/myinfo/personaldetail";
     };
 };
 
@@ -55,7 +63,7 @@ class ModelReligion extends ModelFormSelectData {
 class ModelAttachment {
     constructor(config) {
         this.config = config;
-        this.url = config["server_url"] + "/myinfo/personaldetail/attachment";
+        this.url = config["server_url"] + "";
         this.axios_config = {
             headers: {
                 "Authorization": "Bearer " + sessionStorage.getItem("access_token")
@@ -88,5 +96,33 @@ class ModelAttachment {
             data: data
         });
         return result;
+    };
+}
+
+class ModelAttachmentPersonalDetail extends ModelAttachment {
+    constructor(config) {
+        super(config);
+        this.url = config["server_url"] + "/myinfo/personaldetail/attachment";
+    };
+}
+
+class ModelContactDetail extends ModelInfoDetail{
+    constructor(config) {
+        super(config);
+        this.url = config["server_url"] + "/myinfo/contactdetail";
+    };
+};
+
+class ModelCountry extends ModelFormSelectData {
+    constructor(config) {
+        super(config);
+        this.url = this.config["server_url"] + "/country";
+    };
+};
+
+class ModelAttachmentContactDetail extends ModelAttachment {
+    constructor(config) {
+        super(config);
+        this.url = config["server_url"] + "/myinfo/contactdetail/attachment";
     };
 }
