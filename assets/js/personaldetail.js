@@ -72,13 +72,13 @@ var app_personal_detail = new Vue({
         var model_nationality = new ModelNationality(config);
         var model_religion = new ModelReligion(config);
         model_workshift.get().then(function (response) {
-            self.work_shift = response.data;
+            self.work_shift = response.data.data;
         });
         model_nationality.get().then(function (response) {
-            self.nationality = response.data;
+            self.nationality = response.data.data;
         });
         model_religion.get().then(function (response) {
-            self.religion = response.data;
+            self.religion = response.data.data;
         });
         self.get();
         $('#personalDetailEdit').prop("hidden", false);
@@ -90,7 +90,7 @@ var app_personal_detail = new Vue({
             var model_personal_detail = new ModelPersonalDetail(config);
             var self = this;
             model_personal_detail.get().then(function (response) {
-                self.form = response.data;
+                self.form = response.data.data;
                 // self.message = response.data.message;
             }).catch(function (error) {
                 console.log(error.response);
@@ -177,7 +177,7 @@ var app_personal_detail_attachment = new Vue({
             }
             var self = this;
             model_attachment.get(data).then(function (response) {
-                self.attachment = response.data;
+                self.attachment = response.data.data;
                 // Don't enable this as this will cause the modal to always show file succesfully retrieved
                 // self.message = response.data[0].message;
             }).catch(function (error) {

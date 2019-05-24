@@ -7,7 +7,7 @@ function checkToken() {
         $('#exampleModal').modal('show');
         setTimeout(function () {
             window.location.href = "/login.html";
-        }, 1000);
+        }, 2000);
     }
 };
 

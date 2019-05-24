@@ -77,7 +77,8 @@
                         <tr v-for="(item, index) in dependent">
                             <td scope="row">{{ item.name }}</td>
                             <td>{{ item.relationship }}</td>
-                            <td>{{ item.gender }}</td>
+                            <td v-if="item.gender == 1">Male</td>
+                            <td v-if="item.gender == 2">Female</td>
                             <td>{{ item.date_of_birth }}</td>
                             <td>
                                 <button type="button" class="btn btn-primary btn-sm" id=""

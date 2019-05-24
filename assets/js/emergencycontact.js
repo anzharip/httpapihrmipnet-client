@@ -35,7 +35,7 @@ var app_emergency_contact = new Vue({
                 emergencycontact_id: emergencycontact_id
             }
             model_emergency_contact.get(data).then(function (response) {
-                self.emergency_contact = response.data;
+                self.emergency_contact = response.data.data;
                 // self.message = response.data.message;
             }).catch(function (error) {
                 console.log(error.response);
@@ -49,7 +49,7 @@ var app_emergency_contact = new Vue({
                 emergencycontact_id: emergencycontact_id
             }
             model_emergency_contact.delete(data).then(function (response) {
-                self.emergency_contact = response.data;
+                self.emergency_contact = response.data.data;
                 self.message = response.data.message;
                 self.get("all");
             }).catch(function (error) {
@@ -180,7 +180,7 @@ var app_emergency_contact_attachment = new Vue({
             }
             var self = this;
             model_attachment.get(data).then(function (response) {
-                self.attachment = response.data;
+                self.attachment = response.data.data;
                 // Don't enable this as this will cause the modal to always show file succesfully retrieved
                 // self.message = response.data[0].message;
             }).catch(function (error) {

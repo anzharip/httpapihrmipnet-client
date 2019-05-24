@@ -15,7 +15,7 @@ var app_job = new Vue({
             var model_job = new ModelJob(config);
             var self = this;
             model_job.get().then(function (response) {
-                self.form = response.data;
+                self.form = response.data.data;
                 // self.message = response.data.message;
             }).catch(function (error) {
                 console.log(error.response);

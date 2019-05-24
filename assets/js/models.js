@@ -1,6 +1,6 @@
 "use strict";
 
-class ModelInfoDetail {
+class ModelReadUpdate {
     constructor(config) {
         this.config = config;
         this.url = config["server_url"] + "";
@@ -21,7 +21,7 @@ class ModelInfoDetail {
     };
 };
 
-class ModelPersonalDetail extends ModelInfoDetail{
+class ModelPersonalDetail extends ModelReadUpdate {
     constructor(config) {
         super(config);
         this.url = config["server_url"] + "/myinfo/personaldetail";
@@ -60,7 +60,7 @@ class ModelReligion extends ModelFormSelectData {
     };
 };
 
-class ModelAttachment {
+class ModelCRUD {
     constructor(config) {
         this.config = config;
         this.url = config["server_url"] + "";
@@ -79,7 +79,7 @@ class ModelAttachment {
         var result = axios.get(this.url, {
             headers: {
                 "Authorization": "Bearer " + sessionStorage.getItem("access_token")
-            }, 
+            },
             params: data
         });
         return result;
@@ -92,21 +92,21 @@ class ModelAttachment {
         var result = axios.delete(this.url, {
             headers: {
                 "Authorization": "Bearer " + sessionStorage.getItem("access_token")
-            }, 
+            },
             params: data
         });
         return result;
     };
 }
 
-class ModelAttachmentPersonalDetail extends ModelAttachment {
+class ModelAttachmentPersonalDetail extends ModelCRUD {
     constructor(config) {
         super(config);
         this.url = config["server_url"] + "/myinfo/personaldetail/attachment";
     };
 }
 
-class ModelContactDetail extends ModelInfoDetail{
+class ModelContactDetail extends ModelCRUD {
     constructor(config) {
         super(config);
         this.url = config["server_url"] + "/myinfo/contactdetail";
@@ -120,42 +120,42 @@ class ModelCountry extends ModelFormSelectData {
     };
 };
 
-class ModelAttachmentContactDetail extends ModelAttachment {
+class ModelAttachmentContactDetail extends ModelCRUD {
     constructor(config) {
         super(config);
         this.url = config["server_url"] + "/myinfo/contactdetail/attachment";
     };
 }
 
-class ModelEmergencyContact extends ModelAttachment {
+class ModelEmergencyContact extends ModelCRUD {
     constructor(config) {
         super(config);
         this.url = config["server_url"] + "/myinfo/emergencycontact";
     };
 }
 
-class ModelAttachmentEmergencyContact extends ModelAttachment {
+class ModelAttachmentEmergencyContact extends ModelCRUD {
     constructor(config) {
         super(config);
         this.url = config["server_url"] + "/myinfo/emergencycontact/attachment";
     };
 }
 
-class ModelDependent extends ModelAttachment {
+class ModelDependent extends ModelCRUD {
     constructor(config) {
         super(config);
         this.url = config["server_url"] + "/myinfo/dependent";
     };
 }
 
-class ModelAttachmentDependent extends ModelAttachment {
+class ModelAttachmentDependent extends ModelCRUD {
     constructor(config) {
         super(config);
         this.url = config["server_url"] + "/myinfo/dependent/attachment";
     };
 }
 
-class ModelJob extends ModelAttachment {
+class ModelJob extends ModelReadUpdate {
     constructor(config) {
         super(config);
         this.url = config["server_url"] + "/myinfo/job";

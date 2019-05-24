@@ -56,7 +56,7 @@ var app_dependent = new Vue({
                 dependent_id: dependent_id
             }
             model_dependent.get(data).then(function (response) {
-                self.dependent = response.data;
+                self.dependent = response.data.data;
                 // self.message = response.data.message;
             }).catch(function (error) {
                 console.log(error.response);
@@ -70,7 +70,7 @@ var app_dependent = new Vue({
                 dependent_id: dependent_id
             }
             model_dependent.delete(data).then(function (response) {
-                self.dependent = response.data;
+                self.dependent = response.data.data;
                 self.message = response.data.message;
                 self.get("all");
             }).catch(function (error) {
@@ -199,7 +199,7 @@ var app_dependent_attachment = new Vue({
             }
             var self = this;
             model_attachment.get(data).then(function (response) {
-                self.attachment = response.data;
+                self.attachment = response.data.data;
                 // Don't enable this as this will cause the modal to always show file succesfully retrieved
                 // self.message = response.data[0].message;
             }).catch(function (error) {

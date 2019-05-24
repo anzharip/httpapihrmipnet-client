@@ -20,10 +20,11 @@ var app_contact_detail = new Vue({
         country_list: "",
     },
     created: function () {
+        checkToken();
         var model_country = new ModelCountry(config);
         var self = this;
         model_country.get().then(function (response) {
-            self.country_list = response.data;
+            self.country_list = response.data.data;
         }).catch(function (error) {
             console.log(error.response);
             self.message = error.response.data.message;
@@ -37,7 +38,7 @@ var app_contact_detail = new Vue({
             var model_contact_detail = new ModelContactDetail(config);
             var self = this;
             model_contact_detail.get().then(function (response) {
-                self.form = response.data;
+                self.form = response.data.data;
                 // self.message = response.data.message;
             }).catch(function (error) {
                 console.log(error.response);
@@ -121,7 +122,7 @@ var app_contact_detail_attachment = new Vue({
             }
             var self = this;
             model_attachment.get(data).then(function (response) {
-                self.attachment = response.data;
+                self.attachment = response.data.data;
                 // Don't enable this as this will cause the modal to always show file succesfully retrieved
                 // self.message = response.data[0].message;
             }).catch(function (error) {
