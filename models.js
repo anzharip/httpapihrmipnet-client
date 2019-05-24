@@ -93,7 +93,7 @@ class ModelAttachment {
             headers: {
                 "Authorization": "Bearer " + sessionStorage.getItem("access_token")
             }, 
-            data: data
+            params: data
         });
         return result;
     };
@@ -124,5 +124,40 @@ class ModelAttachmentContactDetail extends ModelAttachment {
     constructor(config) {
         super(config);
         this.url = config["server_url"] + "/myinfo/contactdetail/attachment";
+    };
+}
+
+class ModelEmergencyContact extends ModelAttachment {
+    constructor(config) {
+        super(config);
+        this.url = config["server_url"] + "/myinfo/emergencycontact";
+    };
+}
+
+class ModelAttachmentEmergencyContact extends ModelAttachment {
+    constructor(config) {
+        super(config);
+        this.url = config["server_url"] + "/myinfo/emergencycontact/attachment";
+    };
+}
+
+class ModelDependent extends ModelAttachment {
+    constructor(config) {
+        super(config);
+        this.url = config["server_url"] + "/myinfo/dependent";
+    };
+}
+
+class ModelAttachmentDependent extends ModelAttachment {
+    constructor(config) {
+        super(config);
+        this.url = config["server_url"] + "/myinfo/dependent/attachment";
+    };
+}
+
+class ModelJob extends ModelAttachment {
+    constructor(config) {
+        super(config);
+        this.url = config["server_url"] + "/myinfo/job";
     };
 }

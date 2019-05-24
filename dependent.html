@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Contact Detail</title>
+    <title>Dependent</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -57,119 +57,155 @@
     <div class="container">
         <div class="row">
             <div class="col-md">
-                <h2>Contact Detail</h2>
+                <h2>Dependent</h2>
             </div>
         </div>
-
     </div>
-    <div class="container" id="app_contact_detail">
+    <div class="container" id="app_dependent">
         <div class="row">
             <div class="col-md">
-                <div class="form-group">
-                    <label for="">Address Street 1</label>
-                    <input type="text" class="form-control contactDetailDisabled" name="" id="address_street_1"
-                        aria-describedby="helpId" placeholder="Address Street 1" v-model="form.address_street_1"
-                        disabled>
-                </div>
+                <table class="table table-responsive-md">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Relationship</th>
+                            <th>Gender</th>
+                            <th>Date of Birth</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in dependent">
+                            <td scope="row">{{ item.name }}</td>
+                            <td>{{ item.relationship }}</td>
+                            <td>{{ item.gender }}</td>
+                            <td>{{ item.date_of_birth }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm" id=""
+                                    v-on:click="selectEditDependent(item)">Edit</button>
+                                <button type="button" class="btn btn-primary btn-sm" id=""
+                                    v-on:click="deleteDependent(item.dependent_id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
+        <div class="row editDependent">
+            <div class="col-md">
+                <hr>
+            </div>
+        </div>
+        <div class="row editDependent">
+            <div class="col-md">
+                <h2>Edit Dependent</h2>
+            </div>
+        </div>
+        <div class="row editDependent">
             <div class="col-md">
                 <div class="form-group">
-                    <label for="">Address Street 2</label>
-                    <input type="text" class="form-control contactDetailDisabled" name="" id="address_street_2"
-                        aria-describedby="helpId" placeholder="Address Street 2" v-model="form.address_street_2"
-                        disabled>
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Name"
+                        v-model="selected_dependent.name">
+                </div>
+            </div>
+            <div class="col-md editDependent">
+                <div class="form-group">
+                    <label for="">Relationship</label>
+                    <select class="form-control" name="" id="relationship" v-model="selected_dependent.relationship">
+                            <option disabled>Please select</option>
+                            <option v-for="(item, index) in relationship_list" :value="item.relationship_code">{{ item.relationship_name }}
+                            </option>
+                        </select>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row editDependent">
             <div class="col-md">
                 <div class="form-group">
-                    <label for="">City</label>
-                    <input type="text" class="form-control contactDetailDisabled" name="" id="city"
-                        aria-describedby="helpId" placeholder="City" v-model="form.city" disabled>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="form-group">
-                    <label for="">State/Province</label>
-                    <input type="text" class="form-control contactDetailDisabled" name="" id="state_province"
-                        aria-describedby="helpId" placeholder="State/Province" v-model="form.state_province" disabled>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md">
-                <div class="form-group">
-                    <label for="">Zip/Postal Code</label>
-                    <input type="text" class="form-control contactDetailDisabled" name="" id="zip_postal_code"
-                        aria-describedby="helpId" placeholder="Zip/Postal Code" v-model="form.zip_postal_code" disabled>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="form-group">
-                    <label for="">Country</label>
-                    <select class="form-control contactDetailDisabled" name="" id="country" v-model="form.country"
-                        disabled>
+                    <label for="">Gender</label>
+                    <select class="form-control" name="" id="gender" v-model="selected_dependent.gender">
                         <option disabled>Please select</option>
-                        <option v-for="(item, index) in country_list" :value="item.country_name">
-                            {{ item.country_name }}</option>
+                        <option v-for="(item, index) in gender_list" :value="item.gender_code">{{ item.gender_name }}
+                        </option>
                     </select>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md">
+            <div class="col-md editDependent">
                 <div class="form-group">
-                    <label for="">Home Telephone</label>
-                    <input type="text" class="form-control contactDetailDisabled" name="" id="home_telephone"
-                        aria-describedby="helpId" placeholder="Home Telephone" v-model="form.home_telephone" disabled>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="form-group">
-                    <label for="">Mobile</label>
-                    <input type="text" class="form-control contactDetailDisabled" name="" id="mobile"
-                        aria-describedby="helpId" placeholder="Mobile" v-model="form.mobile" disabled>
+                    <label for="">Date of Birth</label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                        placeholder="Date of Birth" v-model="selected_dependent.date_of_birth">
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row editDependent">
             <div class="col-md">
-                <div class="form-group">
-                    <label for="">Work Telephone</label>
-                    <input type="text" class="form-control contactDetailDisabled" name="" id="work_telephone"
-                        aria-describedby="helpId" placeholder="Work Telephone" v-model="form.work_telephone" disabled>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="form-group">
-                    <label for="">Work Email</label>
-                    <input type="text" class="form-control contactDetailDisabled" name="" id="work_email"
-                        aria-describedby="helpId" placeholder="Work Email" v-model="form.work_email" disabled>
-                </div>
+                <button type="button" class="btn btn-primary" v-on:click="cancelEditDependent">Cancel</button>
+                <button type="button" class="btn btn-primary" v-on:click="submitEditDependent">Update</button>
             </div>
         </div>
         <div class="row">
             <div class="col-md">
-                <div class="form-group">
-                    <label for="">Other Email</label>
-                    <input type="text" class="form-control contactDetailDisabled" name="" id="other_email"
-                        aria-describedby="helpId" placeholder="Other Email" v-model="form.other_email" disabled>
-                </div>
+                <hr>
             </div>
         </div>
         <div class="row">
             <div class="col-md">
-                <button type="button" class="btn btn-primary" id="contactdDetailEdit"
-                    v-on:click="contactDetailEdit">Edit</button>
-                <button type="button" class="btn btn-primary" id="contactdDetailCancel"
-                    v-on:click="contactDetailCancel">Cancel</button>
-                <button type="button" class="btn btn-primary" id="contactdDetailSubmit"
-                    v-on:click="contactDetailSubmit">Submit</button>
+                <h2>Upload Dependent</h2>
+            </div>
+        </div>
+        <div class="row uploadEmergencyContact">
+            <div class="col-md">
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Name"
+                        v-model="upload_dependent.name" required>
+                </div>
+            </div>
+            <div class="col-md uploadEmergencyContact">
+                <div class="form-group">
+                    <label for="">Relationship</label>
+                    <select class="form-control" name="" id="relationship" v-model="upload_dependent.relationship">
+                            <option disabled>Please select</option>
+                            <option v-for="(item, index) in relationship_list" :value="item.relationship_code">{{ item.relationship_name }}
+                            </option>
+                        </select>
+                </div>
+            </div>
+        </div>
+        <div class="row uploadEmergencyContact">
+            <div class="col-md">
+                <div class="form-group">
+                    <label for="">Gender</label>
+                    <select class="form-control" name="" id="gender" v-model="upload_dependent.gender">
+                        <option disabled>Please select</option>
+                        <option v-for="(item, index) in gender_list" :value="item.gender_code">{{ item.gender_name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md uploadEmergencyContact">
+                <div class="form-group">
+                    <label for="">Date of Birth</label>
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                        placeholder="Date of Birth" v-model="upload_dependent.date_of_birth">
+                </div>
+            </div>
+        </div>
+        <div class="row uploadEmergencyContact">
+            <div class="col-md">
+                <button type="button" class="btn btn-primary" v-on:click="cancelUploadDependent">Cancel</button>
+                <button type="button" class="btn btn-primary" v-on:click="submitUploadDependent">Submit</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <hr>
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="contactDetailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="dependentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -203,7 +239,7 @@
             </div>
         </div>
     </div>
-    <div class="container" id="app_contact_detail_attachment">
+    <div class="container" id="app_dependent_attachment">
         <div class="row">
             <div class="col-md">
                 <table class="table table-responsive-md">
@@ -235,17 +271,17 @@
                 </table>
             </div>
         </div>
-        <div class="row editAttachment" hidden>
+        <div class="row editAttachment">
             <div class="col-md">
                 <hr>
             </div>
         </div>
-        <div class="row editAttachment" hidden>
+        <div class="row editAttachment">
             <div class="col-md">
                 <h2>Edit Attachment</h2>
             </div>
         </div>
-        <div class="row editAttachment" hidden>
+        <div class="row editAttachment">
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Current File</label>
@@ -253,7 +289,7 @@
                         placeholder="Current File" v-model="selected_attachment.file_name" disabled>
                 </div>
             </div>
-            <div class="col-md editAttachment" hidden>
+            <div class="col-md editAttachment">
                 <div class="form-group">
                     <label for="">Comment</label>
                     <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
@@ -261,7 +297,7 @@
                 </div>
             </div>
         </div>
-        <div class="row editAttachment" hidden>
+        <div class="row editAttachment">
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Date Added</label>
@@ -270,7 +306,7 @@
                 </div>
             </div>
         </div>
-        <div class="row editAttachment" hidden>
+        <div class="row editAttachment">
             <div class="col-md">
                 <button type="button" class="btn btn-primary" v-on:click="cancelEditAttachment">Cancel</button>
                 <button type="button" class="btn btn-primary" v-on:click="submitEditAttachment">Update</button>
@@ -309,7 +345,7 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="attachmentContactDetailModal" tabindex="-1" role="dialog"
+        <div class="modal fade" id="attachmentDependentModal" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
