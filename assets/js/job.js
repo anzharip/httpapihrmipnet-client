@@ -20,6 +20,7 @@ var app_job = new Vue({
             }).catch(function (error) {
                 console.log(error.response);
                 self.message = error.response.data.message;
+                $('#jobModal').modal('show');
             });
         }
     }
