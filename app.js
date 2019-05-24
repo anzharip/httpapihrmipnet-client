@@ -1,25 +1,27 @@
 "use strict";
-var config = {
-    "server_url": "http://anzmbp.local:5000"
-}
 
 var app_personal_detail = new Vue({
     el: "#app_personal_detail",
-    created: function () {
-        var model_workshift = new ModelWorkShift(config);
-        var model_nationality = new ModelNationality(config);
-        var model_religion = new ModelReligion(config);
-        model_workshift.get().then(function (response) {
-            app_personal_detail.work_shift = response.data;
-        });
-        model_nationality.get().then(function (response) {
-            app_personal_detail.nationality = response.data;
-        });
-        model_religion.get().then(function (response) {
-            app_personal_detail.religion = response.data;
-        });
-    },
     data: {
+        form: {
+            first_name: "",
+            middle_name: "",
+            last_name: "",
+            employee_id: "",
+            no_ktp: "",
+            drivers_license_number: "",
+            license_expiry_date: "",
+            no_bpjs_kesehatan: "",
+            no_npwp: "",
+            no_bpjs_ketenagakerjaan: "",
+            work_shift: "",
+            gender: "",
+            marital_status: "",
+            nationality: "",
+            date_of_birth: "",
+            religion: "",
+            place_of_birth: "",
+        },
         message: "",
         first_name: "",
         middle_name: "",
@@ -63,8 +65,74 @@ var app_personal_detail = new Vue({
                 gender_name: "Female"
             }
         ],
-
     },
+    created: function () {
+        var self = this;
+        var model_workshift = new ModelWorkShift(config);
+        var model_nationality = new ModelNationality(config);
+        var model_religion = new ModelReligion(config);
+        model_workshift.get().then(function (response) {
+            self.work_shift = response.data;
+        });
+        model_nationality.get().then(function (response) {
+            self.nationality = response.data;
+        });
+        model_religion.get().then(function (response) {
+            self.religion = response.data;
+        });
+        self.get();
+        $('#personalDetailEdit').prop("hidden", false);
+        $('#personalDetailCancel').prop("hidden", true);
+        $('#personalDetailSubmit').prop("hidden", true);
+    },
+    methods: {
+        get: function () {
+            var model_personal_detail = new ModelPersonalDetail(config);
+            var self = this;
+            model_personal_detail.get().then(function (response) {
+                self.form = response.data;
+                // self.message = response.data.message;
+            }).catch(function (error) {
+                console.log(error.response);
+                self.message = error.response.data.message;
+            });
+        },
+        put: function () {
+            var model_personal_detail = new ModelPersonalDetail(config);
+            var self = this;
+            var data = self.form;
+            model_personal_detail.put(data).then(function (response) {
+                self.get();
+                self.message = response.data.message;
+            }).catch(function (error) {
+                console.log(error.response);
+                self.message = error.response.data.message;
+            });
+        },
+        edit: function () {
+            $('#personalDetailEdit').prop("hidden", true);
+            $('#personalDetailCancel').prop("hidden", false);
+            $('#personalDetailSubmit').prop("hidden", false);
+            $('.personalDetailDisabled').prop("disabled", false);
+        },
+        cancel: function () {
+            var self = this;
+            $('#personalDetailEdit').prop("hidden", false);
+            $('#personalDetailCancel').prop("hidden", true);
+            $('#personalDetailSubmit').prop("hidden", true);
+            $('.personalDetailDisabled').prop("disabled", true);
+            self.get();
+        },
+        submit: function () {
+            var self = this;
+            $('#personalDetailEdit').prop("hidden", false);
+            $('#personalDetailCancel').prop("hidden", true);
+            $('#personalDetailSubmit').prop("hidden", true);
+            $('.personalDetailDisabled').prop("disabled", true);
+            self.put();
+
+        }
+    }
 });
 
 var app_personal_detail_attachment = new Vue({
@@ -78,6 +146,10 @@ var app_personal_detail_attachment = new Vue({
             comment: ""
         },
         message: ""
+    },
+    created: function (){
+        var self = this;
+        self.getAttachment("all");
     },
     methods: {
         deleteAttachment: function (file_id) {
@@ -949,14 +1021,6 @@ var app_job = new Vue({
     }
 });
 
-function tokenExpired() {
-    document.getElementById("modal-message").innerHTML = "Token is expired";
-    $('#exampleModal').modal('show');
-    setTimeout(function () {
-        window.location.href = "/login.html";
-    }, 1000);
-};
-
 function logout() {
     sessionStorage.removeItem("access_token");
     document.getElementById("modal-message").innerHTML = "Logging out";
@@ -967,41 +1031,5 @@ function logout() {
 };
 
 $(document).ready(function () {
-    //
-    var model_attachment = new ModelAttachmentPersonalDetail(config);
-    var data = {
-        file_id: "all"
-    }
-    model_attachment.get(data).then(function (response) {
-        app_personal_detail_attachment.attachment = response.data;
-        console.log(response);
-    });
-    //
     checkToken();
-    var view_personal_detail = new ViewPersonalDetail();
-    view_personal_detail.init();
-    $('#personalDetailCancel').prop("hidden", true);
-    $('#personalDetailSubmit').prop("hidden", true);
-    $("#personalDetailEdit").click(function () {
-        $('.personalDetailDisabled').prop("disabled", false);
-        $('#personalDetailEdit').prop("hidden", true);
-        $('#personalDetailCancel').prop("hidden", false);
-        $('#personalDetailSubmit').prop("hidden", false);
-    });
-    $("#personalDetailCancel").click(function () {
-        view_personal_detail.init();
-        $('.personalDetailDisabled').prop("disabled", true);
-        $('#personalDetailEdit').prop("hidden", false);
-        $('#personalDetailCancel').prop("hidden", true);
-        $('#personalDetailSubmit').prop("hidden", true);
-    });
-    $("#personalDetailSubmit").click(function () {
-        $('.personalDetailDisabled').prop("disabled", true);
-        $('#personalDetailEdit').prop("hidden", false);
-        $('#personalDetailCancel').prop("hidden", true);
-        $('#personalDetailSubmit').prop("hidden", true);
-        view_personal_detail.put();
-    });
-    $("#attachmentEdit").click();
-    $("#attachmentDelete").click();
 });

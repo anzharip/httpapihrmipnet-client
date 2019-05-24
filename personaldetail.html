@@ -68,21 +68,21 @@
                 <div class="form-group">
                     <label for="">First Name</label>
                     <input type="text" class="form-control personalDetailDisabled" name="" id="first_name"
-                        aria-describedby="helpId" placeholder="First Name" v-model="first_name" disabled>
+                        aria-describedby="helpId" placeholder="First Name" v-model="form.first_name" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Middle Name</label>
                     <input type="text" class="form-control personalDetailDisabled" name="" id="middle_name"
-                        aria-describedby="helpId" placeholder="Middle Name" v-model="middle_name" disabled>
+                        aria-describedby="helpId" placeholder="Middle Name" v-model="form.middle_name" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Last Name</label>
                     <input type="text" class="form-control personalDetailDisabled" name="" id="last_name"
-                        aria-describedby="helpId" placeholder="Last Name" v-model="last_name" disabled>
+                        aria-describedby="helpId" placeholder="Last Name" v-model="form.last_name" disabled>
                 </div>
             </div>
         </div>
@@ -91,14 +91,14 @@
                 <div class="form-group">
                     <label for="">Employee ID</label>
                     <input type="text" class="form-control" name="" id="employee_id" aria-describedby="helpId"
-                        placeholder="Employee ID" v-model="employee_id" disabled>
+                        placeholder="Employee ID" v-model="form.employee_id" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">No KTP</label>
                     <input type="text" class="form-control personalDetailDisabled" name="" id="no_ktp"
-                        aria-describedby="helpId" placeholder="No KTP" v-model="no_ktp" disabled>
+                        aria-describedby="helpId" placeholder="No KTP" v-model="form.no_ktp" disabled>
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
                 <div class="form-group">
                     <label for="">Driver’s License Number</label>
                     <input type="text" class="form-control" name="" id="drivers_license_number"
-                        aria-describedby="helpId" placeholder="Driver’s License Number" v-model="drivers_license_number"
+                        aria-describedby="helpId" placeholder="Driver’s License Number" v-model="form.drivers_license_number"
                         disabled>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                 <div class="form-group">
                     <label for="">License Expiry Date</label>
                     <input type="text" class="form-control personalDetailDisabled" name="" id="license_expiry_date"
-                        aria-describedby="helpId" placeholder="License Expiry Date" v-model="license_expiry_date"
+                        aria-describedby="helpId" placeholder="License Expiry Date" v-model="form.license_expiry_date"
                         disabled>
                 </div>
             </div>
@@ -125,14 +125,14 @@
                 <div class="form-group">
                     <label for="">No BPJS Kesehatan</label>
                     <input type="text" class="form-control personalDetailDisabled" name="" id="no_bpjs_kesehatan"
-                        aria-describedby="helpId" placeholder="No BPJS Kesehatan" v-model="no_bpjs_kesehatan" disabled>
+                        aria-describedby="helpId" placeholder="No BPJS Kesehatan" v-model="form.no_bpjs_kesehatan" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">No NPWP</label>
                     <input type="text" class="form-control personalDetailDisabled" name="" id="no_npwp"
-                        aria-describedby="helpId" placeholder="No NPWP" v-model="no_npwp" disabled>
+                        aria-describedby="helpId" placeholder="No NPWP" v-model="form.no_npwp" disabled>
                 </div>
             </div>
             <div class="col-md">
@@ -140,7 +140,7 @@
                     <label for="">No BPJS Ketenagakerjaan</label>
                     <input type="text" class="form-control personalDetailDisabled" name="" id="no_bpjs_ketenagakerjaan"
                         aria-describedby="helpId" placeholder="No BPJS Ketenagakerjaan"
-                        v-model="no_bpjs_ketenagakerjaan" disabled>
+                        v-model="form.no_bpjs_ketenagakerjaan" disabled>
                 </div>
             </div>
         </div>
@@ -149,7 +149,7 @@
                 <div class="form-group">
                     <label for="">Work Shift</label>
                     <select class="form-control personalDetailDisabled" name="" id="work_shift"
-                        v-model="selected_workshift" disabled>
+                        v-model="form.work_shift" disabled>
                         <option disabled>Please select</option>
                         <option v-for="(item, index) in work_shift" :value="item.workshift_code">
                             {{ item.workshift_name }}</option>
@@ -159,7 +159,7 @@
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Gender</label>
-                    <select class="form-control personalDetailDisabled" name="" id="gender" v-model="selected_gender"
+                    <select class="form-control personalDetailDisabled" name="" id="gender" v-model="form.gender"
                         disabled>
                         <option disabled>Please select</option>
                         <option v-for="(item, index) in gender" :value="item.gender_code">{{ item.gender_name }}
@@ -173,7 +173,7 @@
                 <div class="form-group">
                     <label for="">Marital Status</label>
                     <select class="form-control personalDetailDisabled" name="" id="marital_status"
-                        v-model="selected_marital_status" disabled>
+                        v-model="form.marital_status" disabled>
                         <option disabled>Please select</option>
                         <option v-for="(item, index) in marital_status" :value="item.marital_status_name">
                             {{ item.marital_status_name }}</option>
@@ -184,7 +184,7 @@
                 <div class="form-group">
                     <label for="">Nationality</label>
                     <select class="form-control personalDetailDisabled" name="" id="nationality"
-                        v-model="selected_nationality" disabled>
+                        v-model="form.nationality" disabled>
                         <option disabled>Please select</option>
                         <option v-for="(item, index) in nationality" :value="item.nation_code">{{ item.nation_name }}
                         </option>
@@ -197,14 +197,14 @@
                 <div class="form-group">
                     <label for="">Date of Birth</label>
                     <input type="text" class="form-control" name="" id="date_of_birth" aria-describedby="helpId"
-                        placeholder="Date of Birth" v-model="date_of_birth" disabled>
+                        placeholder="Date of Birth" v-model="form.date_of_birth" disabled>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group">
                     <label for="">Religion</label>
                     <select class="form-control personalDetailDisabled" name="" id="religion"
-                        v-model="selected_religion" disabled>
+                        v-model="form.religion" disabled>
                         <option disabled>Please select</option>
                         <option v-for="(item, index) in religion" :value="item.religion_code">{{ item.religion_name }}
                         </option>
@@ -217,15 +217,15 @@
                 <div class="form-group">
                     <label for="">Place of Birth</label>
                     <input type="text" class="form-control personalDetailDisabled" name="" id="place_of_birth"
-                        aria-describedby="helpId" placeholder="Place of Birth" v-model="place_of_birth" disabled>
+                        aria-describedby="helpId" placeholder="Place of Birth" v-model="form.place_of_birth" disabled>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md">
-                <button type="button" class="btn btn-primary" id="personalDetailEdit">Edit</button>
-                <button type="button" class="btn btn-primary" id="personalDetailCancel">Cancel</button>
-                <button type="button" class="btn btn-primary" id="personalDetailSubmit">Submit</button>
+                <button type="button" class="btn btn-primary" id="personalDetailEdit" v-on:click="edit">Edit</button>
+                <button type="button" class="btn btn-primary" id="personalDetailCancel" v-on:click="cancel">Cancel</button>
+                <button type="button" class="btn btn-primary" id="personalDetailSubmit" v-on:click="submit">Submit</button>
             </div>
         </div>
         <!-- Modal -->
@@ -401,6 +401,7 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./config.js"></script>
     <script src="./models.js"></script>
     <script src="./views.js"></script>
     <script src="./app.js"></script>
