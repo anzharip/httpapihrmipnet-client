@@ -213,7 +213,6 @@
                             <th>Size</th>
                             <th>Type</th>
                             <th>Date Added</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -224,10 +223,18 @@
                             <td>{{ item.type }}</td>
                             <td>{{ item.date_added }}</td>
                             <td>
+                                    <button type="button" class="btn btn-primary btn-sm" id="attachmentDownload"
+                                    v-on:click="downloadAttachment(item.file_id)">Download</button>
+                            </td>
+                            <td>
                                 <button type="button" class="btn btn-primary btn-sm" id="attachmentEdit"
                                     v-on:click="selectAttachment(item)">Edit</button>
-                                <button type="button" class="btn btn-primary btn-sm" id="attachmentDelete"
+                            </td>
+                            
+                            <td>
+                                    <button type="button" class="btn btn-primary btn-sm" id="attachmentDelete"
                                     v-on:click="deleteAttachment(item.file_id)">Delete</button>
+
                             </td>
                         </tr>
                     </tbody>

@@ -130,7 +130,6 @@ var app_personal_detail = new Vue({
             $('#personalDetailSubmit').prop("hidden", true);
             $('.personalDetailDisabled').prop("disabled", true);
             self.put();
-
         }
     }
 });
@@ -145,9 +144,10 @@ var app_personal_detail_attachment = new Vue({
             file_name: "",
             comment: ""
         },
+        download_attachment: {}, 
         message: ""
     },
-    created: function (){
+    created: function () {
         var self = this;
         self.getAttachment("all");
     },
@@ -249,6 +249,32 @@ var app_personal_detail_attachment = new Vue({
             }).catch(function (error) {
                 console.log(error.response);
                 self.message = error.response.data.message;
+            });
+        },
+        downloadAttachment: function (file_id) {
+            var model_attachment = new ModelAttachmentPersonalDetail(config);
+            var data = {
+                file_id: file_id
+            }
+            var self = this;
+            model_attachment.get(data).then(function (response) {
+                self.download_attachment = response.data.data;
+                // Don't enable this as this will cause the modal to always show file succesfully retrieved
+                // self.message = response.data[0].message;
+                var element = document.createElement('a');
+                var type = self.download_attachment.type;
+                var base64file = self.download_attachment.file;
+                var file_name = self.download_attachment.file_name; 
+                element.setAttribute('href', 'data:' + type + ';base64,' + base64file);
+                element.setAttribute('download', file_name);
+                element.style.display = 'none';
+                document.body.appendChild(element);
+                element.click();
+                document.body.removeChild(element);
+            }).catch(function (error) {
+                console.log(error.response);
+                self.message = error.response.data.message;
+                $('#attachmentPersonalDetailModal').modal('show');
             });
         }
     }
