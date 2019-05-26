@@ -24,7 +24,9 @@ var app_contact_detail = new Vue({
         var model_country = new ModelCountry(config);
         var self = this;
         model_country.get().then(function (response) {
-            self.country_list = response.data.data;
+            var aescipher = new AESCipher(config.key, response.data.data);
+            self.country_list = JSON.parse(aescipher.decrypt());
+            // self.country_list = response.data.data;
         }).catch(function (error) {
             console.log(error.response);
             self.message = error.response.data.message;
@@ -38,7 +40,9 @@ var app_contact_detail = new Vue({
             var model_contact_detail = new ModelContactDetail(config);
             var self = this;
             model_contact_detail.get().then(function (response) {
-                self.form = response.data.data;
+                var aescipher = new AESCipher(config.key, response.data.data);
+                self.form = JSON.parse(aescipher.decrypt());
+                // self.form = response.data.data;
                 // self.message = response.data.message;
             }).catch(function (error) {
                 console.log(error.response);
@@ -123,7 +127,9 @@ var app_contact_detail_attachment = new Vue({
             }
             var self = this;
             model_attachment.get(data).then(function (response) {
-                self.attachment = response.data.data;
+                var aescipher = new AESCipher(config.key, response.data.data);
+                self.attachment = JSON.parse(aescipher.decrypt());
+                // self.attachment = response.data.data;
                 // Don't enable this as this will cause the modal to always show file succesfully retrieved
                 // self.message = response.data[0].message;
             }).catch(function (error) {
@@ -204,7 +210,9 @@ var app_contact_detail_attachment = new Vue({
             }
             var self = this;
             model_attachment.get(data).then(function (response) {
-                self.download_attachment = response.data.data;
+                var aescipher = new AESCipher(config.key, response.data.data);
+                self.download_attachment = JSON.parse(aescipher.decrypt());
+                // self.download_attachment = response.data.data;
                 // Don't enable this as this will cause the modal to always show file succesfully retrieved
                 // self.message = response.data[0].message;
                 var element = document.createElement('a');
