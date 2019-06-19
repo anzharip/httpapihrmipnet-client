@@ -78,6 +78,7 @@
     <script src="./assets/js/vue.js"></script>
     <!-- Axios -->
     <script src="./assets/js/axios.min.js"></script>
+    <script src="./assets/js/config.js"></script>
     <script>
         function login() {
             var username = document.getElementById("username").value;
@@ -86,7 +87,7 @@
                 username: username,
                 password: password
             })
-            axios.post('http://anzmbp.local:5000/login', data, {
+            axios.post(config.server_url + "/login", data, {
                     headers: {
                         "Content-Type": "application/json"
                     }

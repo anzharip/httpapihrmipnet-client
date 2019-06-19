@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b8e04e0f-5c49-446e-a435-460bd83260de" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/httpapihrmipnet-client.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="140" />
+    <option name="y" value="43" />
+    <option name="width" value="1400" />
+    <option name="height" value="899" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="httpapihrmipnet-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="httpapihrmipnet-client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="httpapihrmipnet-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="httpapihrmipnet-client" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="httpapihrmipnet-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="httpapihrmipnet-client" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.uml" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b8e04e0f-5c49-446e-a435-460bd83260de" name="Default Changelist" comment="" />
+      <created>1558842466233</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558842466233</updated>
+      <workItem from="1558842469772" duration="729000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="729000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="140" y="43" width="1400" height="899" extended-state="0" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24945612" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="uml://JavaScript-modules-diagram//Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/aesb64.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/aesjs.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/app.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/axios.min.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/bootstrap.min.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/config.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/contactdetail.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/dependent.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/emergencycontact.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/job.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/jquery-3.3.1.slim.min.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/models.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/personaldetail.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/popper.min.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/vue.js;">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/assets/js/aesb64.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/aesjs.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/app.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/axios.min.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/bootstrap.min.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/config.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/contactdetail.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/dependent.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/emergencycontact.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/job.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/jquery-3.3.1.slim.min.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/models.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/personaldetail.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/popper.min.js;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/vue.js;</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/assets/js/bootstrap.min.js#jquery#317;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/bootstrap.min.js#popper.js#335;</node>
+            <node x="" y="">jquery</node>
+            <node x="" y="">popper.js</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="117.5" y="111.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/personaldetail.js">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/assets/js/personaldetail.js</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.4913684189691719" x="823.1513386067984" y="409.16168964930046" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/assets/js</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/assets/js/bootstrap.min.js#jquery#317;/Users/anzhari/GitRepo/httpapihrmipnet-client/assets/js/bootstrap.min.js#popper.js#335;</node>
+            <node x="" y="">jquery</node>
+            <node x="" y="">popper.js</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.27714214679131854" x="840.8737929383965" y="297.60365693649464" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
