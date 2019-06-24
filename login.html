@@ -94,6 +94,7 @@
                 })
                 .then(function (response) {
                     var message = response.data.message;
+                    document.getElementById("modal-message").innerHTML = "Please wait";
                     document.getElementById("modal-message").innerHTML = message;
                     sessionStorage.setItem("access_token", response.data.access_token);
                     console.log(response);
@@ -103,6 +104,7 @@
                 })
                 .catch(function (error) {
                     var message = error.response.data.message;
+                    document.getElementById("modal-message").innerHTML = "Please wait";
                     document.getElementById("modal-message").innerHTML = message;
                     console.log(error.response);
                 });
